@@ -20,17 +20,23 @@ public class HelloController {
     @Autowired
     configBean configBean;
 
-    @Autowired
-    TestService testService;
+    /*@Autowired
+    TestService testService;*/
 
     @RequestMapping(value = "/hello")
     @ResponseBody
     public String hello(){
 
-        testService.reportCurrentTime();
-        testService.reportCurrentTime5();
+        /*testService.reportCurrentTime();
+        testService.reportCurrentTime5();*/
 
         return configBean.getName()+"hello world,"+configBean.getValue();
+    }
+
+    @RequestMapping(value = "/lxt")
+    public String lxt(){
+        System.out.println("OK");
+        return "lxt.html";
     }
 
 }
