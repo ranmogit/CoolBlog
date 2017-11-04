@@ -1,6 +1,6 @@
 package cn.lxt.test;
 
-import cn.lxt.domain.User;
+import cn.lxt.bean.User;
 import cn.lxt.domain.UserRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

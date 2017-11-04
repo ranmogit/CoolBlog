@@ -1,6 +1,6 @@
 package cn.lxt.controller;
 
-import cn.lxt.domain.User;
+import cn.lxt.bean.User;
 import cn.lxt.domain.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

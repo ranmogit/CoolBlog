@@ -1,7 +1,5 @@
 package cn.lxt.controller;
 
-import cn.lxt.bean.configBean;
-import cn.lxt.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +15,6 @@ public class HelloController {
     private String name;
     @Value("${cn.lxt.controller.helloController.value}")
     private String value;*/
-    @Autowired
-    configBean configBean;
 
     /*@Autowired
     TestService testService;*/
@@ -30,7 +26,7 @@ public class HelloController {
         /*testService.reportCurrentTime();
         testService.reportCurrentTime5();*/
 
-        return configBean.getName()+"hello world,"+configBean.getValue();
+        return "hello world,";
     }
 
     @RequestMapping(value = "/lxt")
