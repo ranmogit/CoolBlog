@@ -3,6 +3,8 @@ package cn.lxt.dao;
 import cn.lxt.bean.User;
 import cn.lxt.bean.UserExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
@@ -27,4 +29,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> queryByNameAndPassword1(Map map);
 }

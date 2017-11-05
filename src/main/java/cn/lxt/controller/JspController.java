@@ -30,4 +30,10 @@ public class JspController {
     public List<User> queryByExample(){
         return userService.queryByNameAndPassword("lxt","1123");
     }
+
+    @RequestMapping(value = "example1")
+    @ResponseBody
+    public List<User> queryByExample1(){
+        return userService.selectByNameAndPassword1();
+    }
 }
