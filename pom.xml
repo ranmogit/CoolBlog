@@ -94,6 +94,13 @@
             <version>1.3.5</version>
         </dependency>
 
+		<!--aop-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>1.5.8.RELEASE</version>
+        </dependency>
+
 		<!--junit-->
 		<dependency>
 			<groupId>junit</groupId>
