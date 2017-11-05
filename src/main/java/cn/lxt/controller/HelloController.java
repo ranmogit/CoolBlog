@@ -1,5 +1,6 @@
 package cn.lxt.controller;
 
+import cn.lxt.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,21 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
 
-    /*@Value("${cn.lxt.controller.helloController.name}")
-    private String name;
-    @Value("${cn.lxt.controller.helloController.value}")
-    private String value;*/
-
-    /*@Autowired
-    TestService testService;*/
+    @Autowired
+    TestService testService;
 
     @RequestMapping(value = "/hello")
     @ResponseBody
     public String hello(){
-
-        /*testService.reportCurrentTime();
-        testService.reportCurrentTime5();*/
-
         return "hello world,";
     }
 

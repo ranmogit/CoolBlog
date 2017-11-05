@@ -1,11 +1,13 @@
 package cn.lxt.controller;
 
 import cn.lxt.bean.User;
-import cn.lxt.domain.UserRepository;
+import cn.lxt.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller("/")
 public class JspController {
@@ -15,15 +17,17 @@ public class JspController {
     }
 
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
-    @RequestMapping(value = "user")
+    @RequestMapping(value = "All")
     @ResponseBody
-    public String queryUser(){
-        String name="lxt";
-        User user = userRepository.findUserByName(name);
-        System.out.println(user.getPassword());
-        return "OK";
+    public List<User> quertAll(){
+        return userService.queryAllUser();
     }
 
+    @RequestMapping(value = "example")
+    @ResponseBody
+    public List<User> queryByExample(){
+        return userService.queryByNameAndPassword("lxt","1123");
+    }
 }
