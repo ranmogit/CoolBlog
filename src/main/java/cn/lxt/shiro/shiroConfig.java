@@ -45,7 +45,8 @@ public class shiroConfig {
         //注册securityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
-        //3拦截器+配置登录和登录成功之后的url
+        //3
+        // 拦截器+配置登录和登录成功之后的url
         //LinkHashMap是有序的，shiro会根据添加的顺序进行拦截
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         //配置不会被拦截的连接  这里顺序判断
@@ -69,7 +70,8 @@ public class shiroConfig {
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         System.out.println("shiro拦截工厂注入类成功");
 
-        //4返回
+        //4
+        //返回
         return shiroFilterFactoryBean;
     }
 }
