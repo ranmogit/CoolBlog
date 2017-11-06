@@ -1,7 +1,6 @@
 package cn.lxt.aop;
 
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.context.annotation.Configuration;
 
 @Aspect     //定义一个切面类
@@ -16,5 +15,14 @@ public class TestAspectJ {
     @Pointcut("execution(* cn.lxt.service..*(..))")
     public void pointcutService(){}
 
+    @Before("pointcutService()")
+    public void beforeMethod(){
+        System.out.println("++++++++++++++++++++");
+    }
+
+    @After("pointcutService()")
+    public void afterMethod(){
+        System.out.println("--------------------");
+    }
 
 }
