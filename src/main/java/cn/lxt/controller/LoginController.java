@@ -1,6 +1,7 @@
 package cn.lxt.controller;
 
 import cn.lxt.bean.User;
+import cn.lxt.service.TokenService;
 import cn.lxt.service.UsersService;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +19,21 @@ public class LoginController {
     @Autowired
     private UsersService usersService;
 
+    @Autowired
+    private TokenService tokenService;
+
+    //登录成功后返回一个map
     @PostMapping(value = "/login")
     @ResponseBody
-    public User login(HttpServletRequest request, Map<String,Object> map){
+    public Map<String, Object> login(HttpServletRequest request){
         String username = request.getParameter("name");
         User user = usersService.findByName(username);
 
         //给这个User创建一个token
+        Map<String,Object> map = tokenService.createToken(user.getId());
 
-        return user;
+        map.put("user",user);
+        return map;
     }
 
     /*@PostMapping(value = "/login")

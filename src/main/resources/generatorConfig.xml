@@ -36,7 +36,8 @@
         </javaClientGenerator>
 
         <!--table是指定每个表的生成策略-->
-        <table tableName="user" domainObjectName="User"></table>
+        <!--<table tableName="user" domainObjectName="User"></table>-->
+        <table tableName="token" domainObjectName="Token"></table>
 
     </context>
 </generatorConfiguration>

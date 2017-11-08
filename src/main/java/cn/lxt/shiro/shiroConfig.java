@@ -95,7 +95,8 @@ public class shiroConfig {
         //authc：所有url都必须认证通过才可以访问
         //user，配置记住我或者认证通过才能访问
         //logout，退出登录
-        filterChainDefinitionMap.put("/static/**","anon");
+        filterChainDefinitionMap.put("/JQuery/**","anon");
+        filterChainDefinitionMap.put("/js/**","anon");
         //配置退出过滤器
         filterChainDefinitionMap.put("/example1","anon");
         filterChainDefinitionMap.put("/lxt","anon");
