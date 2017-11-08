@@ -202,4 +202,9 @@
         </foreach>
         AND password = #{password}
     </select>
+    <select id="queryOneByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        from user WHERE NAME = #{name}
+    </select>
 </mapper>

@@ -18,13 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @MapperScan("cn.lxt.dao")
 public class WarApplication {
 
-    @RequestMapping("/")
-    @ResponseBody
-    public String index(){
-        return "Welcome~";
-    }
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(WarApplication.class, args);
 	}

@@ -31,4 +31,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     List<User> queryByNameAndPassword1(Map map);
+
+    User queryOneByName(String name);
 }
