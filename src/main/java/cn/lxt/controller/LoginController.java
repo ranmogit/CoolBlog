@@ -28,23 +28,10 @@ public class LoginController {
     public Map<String, Object> login(HttpServletRequest request){
         String username = request.getParameter("name");
         User user = usersService.findByName(username);
-
         //给这个User创建一个token
         Map<String,Object> map = tokenService.createToken(user.getId());
-
         map.put("user",user);
         return map;
     }
 
-    /*@PostMapping(value = "/login")
-    @ResponseBody
-    public String login(HttpServletRequest request, Map<String,Object> map){
-        //如果登录则失败从request中获取shiro处理的异常
-        String exception = (String) request.getAttribute("shiroLoginFailure");
-        System.out.println(exception);
-        System.out.println("1");
-        String msg="";
-
-        return "OK";
-    }*/
 }

@@ -21,14 +21,12 @@ public class MyShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        //String username = (String) principalCollection.getPrimaryPrincipal();
-        //SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        //info.setStringPermissions(userService.findPermissions(username));
+
         return null;
     }
 
     /**
-     * 验证当前登录的Subject,验证用户名密码是否争取
+     * 验证当前登录的Subject
      * @param token
      * @return
      * @throws AuthenticationException
