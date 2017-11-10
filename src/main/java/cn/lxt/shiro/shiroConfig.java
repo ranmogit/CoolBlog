@@ -13,7 +13,7 @@ import org.springframework.context.annotation.DependsOn;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class shiroConfig {
 
     /**
@@ -100,6 +100,7 @@ public class shiroConfig {
         //配置退出过滤器
         filterChainDefinitionMap.put("/example1","anon");
         filterChainDefinitionMap.put("/lxt","anon");
+        filterChainDefinitionMap.put("/user","anon");
         filterChainDefinitionMap.put("/login","anon");
         filterChainDefinitionMap.put("/success","anon");
         filterChainDefinitionMap.put("/index","anon");

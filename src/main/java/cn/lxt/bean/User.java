@@ -1,8 +1,12 @@
 package cn.lxt.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class User {
+    @Id
     private Integer id;
 
     private String name;
