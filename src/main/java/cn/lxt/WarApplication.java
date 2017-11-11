@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @MapperScan("cn.lxt.dao")
 public class WarApplication {
-
+//
 	public static void main(String[] args) {
 		SpringApplication.run(WarApplication.class, args);
 	}
