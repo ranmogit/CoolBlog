@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.lxt.dao.TokenMapper">
-  <resultMap id="BaseResultMap" type="cn.lxt.bean.Token">
+<mapper namespace="cn.blog.dao.TokenMapper">
+  <resultMap id="BaseResultMap" type="cn.blog.bean.Token">
     <result column="userId" jdbcType="INTEGER" property="userid" />
     <result column="token" jdbcType="VARCHAR" property="token" />
     <result column="expireTime" jdbcType="DATE" property="expiretime" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     userId, token, expireTime, updateTime
   </sql>
-  <select id="selectByExample" parameterType="cn.lxt.bean.TokenExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="cn.blog.bean.TokenExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -82,19 +82,19 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="cn.lxt.bean.TokenExample">
+  <delete id="deleteByExample" parameterType="cn.blog.bean.TokenExample">
     delete from token
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.lxt.bean.Token">
+  <insert id="insert" parameterType="cn.blog.bean.Token">
     insert into token (userId, token, expireTime, 
       updateTime)
     values (#{userid,jdbcType=INTEGER}, #{token,jdbcType=VARCHAR}, #{expiretime,jdbcType=DATE}, 
       #{updatetime,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="cn.lxt.bean.Token">
+  <insert id="insertSelective" parameterType="cn.blog.bean.Token">
     insert into token
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userid != null">
@@ -125,7 +125,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.lxt.bean.TokenExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="cn.blog.bean.TokenExample" resultType="java.lang.Long">
     select count(*) from token
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

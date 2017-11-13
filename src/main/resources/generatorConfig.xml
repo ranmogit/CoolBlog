@@ -20,7 +20,7 @@
         </javaTypeResolver>
 
         <!--指定javaBean生成的位置 javaBean生成的位置-->
-        <javaModelGenerator targetPackage="cn.lxt.bean" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="cn.blog.bean" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -31,7 +31,7 @@
         </sqlMapGenerator>
 
         <!--指定dao接口生成的位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.lxt.dao"  targetProject="./src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.blog.dao"  targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
