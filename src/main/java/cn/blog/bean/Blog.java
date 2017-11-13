@@ -17,6 +17,18 @@ public class Blog {
 
     private Integer status;
 
+    public Blog() {
+    }
+
+    public Blog(String title, String label, String content, Date updatetime, Integer userid, Integer status) {
+        this.title = title;
+        this.label = label;
+        this.content = content;
+        this.updatetime = updatetime;
+        this.userid = userid;
+        this.status = status;
+    }
+
     public Integer getBlogid() {
         return blogid;
     }

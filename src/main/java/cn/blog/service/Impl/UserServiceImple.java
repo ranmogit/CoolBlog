@@ -18,9 +18,9 @@ public class UserServiceImple implements UserService {
     @Override
     public int queryUser(User user) {
         User user1 = userMapper.selectByNameAndPassword(user);
-        int statu=200;
+        int statu=500;
         if (user1!=null){
-            statu=500;
+            statu=200;
         }
         return statu;
     }

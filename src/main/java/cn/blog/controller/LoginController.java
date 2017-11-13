@@ -23,7 +23,7 @@ public class LoginController {
      * 系统管理员登录action
      * @param name 账号
      * @param password 密码
-     * @return user对象
+     * @return statu 成功返回200，失败返回500
      */
     @RequestMapping(value = "/ajaxLogin")
     public int ajaxLogin(@Param("name")String name,@Param("password")String password){
