@@ -193,4 +193,10 @@
       birthday = #{birthday,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByNameAndPassword" parameterType="cn.blog.bean.User" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    WHERE name=#{name} and password=#{password}
+  </select>
 </mapper>

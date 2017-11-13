@@ -27,4 +27,7 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    //自己添加
+    User selectByNameAndPassword(User user);
 }
