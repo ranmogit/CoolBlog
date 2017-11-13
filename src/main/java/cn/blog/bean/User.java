@@ -1,12 +1,8 @@
 package cn.blog.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.Date;
 
-@Entity
 public class User {
-    @Id
     private Integer id;
 
     private String name;
@@ -14,20 +10,6 @@ public class User {
     private String password;
 
     private Date birthday;
-
-    public User() {
-    }
-
-    public User(String name, String password, Date birthday) {
-        this.name = name;
-        this.password = password;
-        this.birthday = birthday;
-    }
-
-    public User(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
 
     public Integer getId() {
         return id;

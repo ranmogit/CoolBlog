@@ -16,7 +16,7 @@ public class GeneratorTest {
     public static void main(String[] args)throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        File configFile = new File("/Users/apple/Documents/Spring-Boot/src/main/resources/generatorConfig.xml");
+        File configFile = new File("D:\\CoolBlog\\CoolBlog\\src\\main\\resources\\generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(configFile);
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);

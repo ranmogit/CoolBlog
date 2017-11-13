@@ -10,7 +10,7 @@
         </commentGenerator>
         <!--需要配置数据库连接-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/SSM?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+                        connectionURL="jdbc:mysql://106.15.205.155:3306/SSM?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
                         userId="root"
                         password="root">
         </jdbcConnection>
@@ -37,7 +37,8 @@
 
         <!--table是指定每个表的生成策略-->
         <!--<table tableName="user" domainObjectName="User"></table>-->
-        <table tableName="token" domainObjectName="Token"></table>
+        <table tableName="blog" domainObjectName="Blog"></table>
+        <table tableName="user" domainObjectName="User"></table>
 
     </context>
 </generatorConfiguration>
