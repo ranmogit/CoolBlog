@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,12 +26,12 @@ public class LoginController {
      * @param password 密码
      * @return statu 成功返回200，失败返回500
      */
-    @ApiOperation(value = "登录验证",notes = "根据用户名和密码进行验证")
+    @ApiOperation(value = "登录验证",notes = "成功返回200，失败返回500")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name",value = "账号名",required = true,dataType = "String"),
             @ApiImplicitParam(name = "password",value = "密码",required = true,dataType = "String")
     })
-    @RequestMapping(value = "/ajaxLogin")
+    @RequestMapping(value = "/ajaxLogin",method = RequestMethod.POST)
     public int ajaxLogin(@Param("name")String name,@Param("password")String password){
         User user = new User(name,password);
         int statu = userService.queryUser(user);
