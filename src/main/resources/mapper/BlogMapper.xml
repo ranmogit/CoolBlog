@@ -8,6 +8,7 @@
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="updateTime" jdbcType="DATE" property="updatetime" />
     <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    blogId, title, label, content, updateTime, userId
+    blogId, title, label, content, updateTime, userId, status
   </sql>
   <select id="selectByExample" parameterType="cn.blog.bean.BlogExample" resultMap="BaseResultMap">
     select
@@ -102,11 +103,11 @@
   </delete>
   <insert id="insert" parameterType="cn.blog.bean.Blog">
     insert into blog (blogId, title, label, 
-      content, updateTime, userId
-      )
+      content, updateTime, userId, 
+      status)
     values (#{blogid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, 
-      #{content,jdbcType=VARCHAR}, #{updatetime,jdbcType=DATE}, #{userid,jdbcType=INTEGER}
-      )
+      #{content,jdbcType=VARCHAR}, #{updatetime,jdbcType=DATE}, #{userid,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.blog.bean.Blog">
     insert into blog
@@ -129,6 +130,9 @@
       <if test="userid != null">
         userId,
       </if>
+      <if test="status != null">
+        status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="blogid != null">
@@ -148,6 +152,9 @@
       </if>
       <if test="userid != null">
         #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -178,6 +185,9 @@
       <if test="record.userid != null">
         userId = #{record.userid,jdbcType=INTEGER},
       </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -190,7 +200,8 @@
       label = #{record.label,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
       updateTime = #{record.updatetime,jdbcType=DATE},
-      userId = #{record.userid,jdbcType=INTEGER}
+      userId = #{record.userid,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -213,6 +224,9 @@
       <if test="userid != null">
         userId = #{userid,jdbcType=INTEGER},
       </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
     </set>
     where blogId = #{blogid,jdbcType=INTEGER}
   </update>
@@ -222,7 +236,8 @@
       label = #{label,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       updateTime = #{updatetime,jdbcType=DATE},
-      userId = #{userid,jdbcType=INTEGER}
+      userId = #{userid,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
     where blogId = #{blogid,jdbcType=INTEGER}
   </update>
 </mapper>
