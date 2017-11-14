@@ -53,8 +53,8 @@ public class LoginController {
     public Map<String, Object> ajaxLogin(@Param("name")String name,@Param("password")String password){
         User user = new User(name,password);
         Map<String, Object> map = tokenService.createToken(user);
-        int statu = userService.queryUser(user);
-        map.put("status",statu);
+        int status = userService.queryUser(user);
+        map.put("status",status);
         return map;
     }
 }
