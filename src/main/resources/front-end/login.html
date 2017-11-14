@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/bg.css">
     <link rel="stylesheet" href="css/cool.css">
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.js"></script>
 </head>
 
 <body>
@@ -16,11 +17,11 @@
             <div class="cool-center">
                 <h3>Cool-Blog-Admin</h3>
                 <br>
-                <input type="" name="" value="" placeholder="username"  class="cool-input cool-row-3">
+                <input type="" name="name" id="name" value="" placeholder="username"  class="cool-input cool-row-3">
                 <br><br>
-                <input type="" name="" value="" placeholder="password" class="cool-input cool-row-3">
+                <input type="" name="password" id="password" value="" placeholder="password" class="cool-input cool-row-3">
                 <br><br>
-                <button class="cool-button-default">登录</button>
+                <button class="cool-button-default" onclick="login()">登录</button>
             </div>
         </div>
         <ul class="bg-bubbles">
@@ -42,5 +43,28 @@
     </div>
 
 </body>
+<script>
+ function login() {
+
+     var name = document.getElementById('name').value;
+     console.log(name);
+     var password=document.getElementById('password').value;;
+     var url='127.0.0.1:8088/ajaxLogin'
+     $.ajax({
+         url:url,
+         type:'post',
+         data:{name:name,password:password},
+         datatype:'json',
+         success:function (result) {
+             if(result.status==200){
+                 console.log('success!')
+             }else {
+                 alert('失败！')
+             }
+         }
+
+     })
+ }
+</script>
 
 </html>

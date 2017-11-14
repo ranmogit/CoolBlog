@@ -44,12 +44,12 @@ public class LoginController {
         int statu = userService.queryUser(user);
         return statu;
     }*/
-    @ApiOperation(value = "登录验证",notes = "成功返回200，失败返回500")
+    @ApiOperation(value = "登录验证",notes = "成功返回200，失败返回500,返回一个TokenJSON对象")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name",value = "账号名",required = true,dataType = "String"),
             @ApiImplicitParam(name = "password",value = "密码",required = true,dataType = "String")
     })
-    @RequestMapping(value = "/ajaxLogin",method = RequestMethod.GET)
+    @RequestMapping(value = "/ajaxLogin",method = RequestMethod.POST)
     public Map<String, Object> ajaxLogin(@Param("name")String name,@Param("password")String password){
         User user = new User(name,password);
         Map<String, Object> map = tokenService.createToken(user);
