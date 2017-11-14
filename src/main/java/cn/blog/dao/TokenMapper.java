@@ -34,4 +34,6 @@ public interface TokenMapper {
     Token findByUserId(Integer userId);
 
     int updateByToken(Token token);
+
+    int deleteByExpireTime(Token token);
 }

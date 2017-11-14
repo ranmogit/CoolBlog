@@ -1,6 +1,7 @@
 package cn.blog.service.Impl;
 
 import cn.blog.bean.Token;
+import cn.blog.bean.TokenExample;
 import cn.blog.bean.User;
 import cn.blog.dao.TokenMapper;
 import cn.blog.dao.UserMapper;
@@ -8,10 +9,7 @@ import cn.blog.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class TokenServiceImpl implements TokenService {
@@ -44,5 +42,17 @@ public class TokenServiceImpl implements TokenService {
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("token",token);
         return map;
+    }
+
+    @Override
+    public void checkExpire() {
+        Date now = new Date();
+        List<Token> list = tokenMapper.selectByExample(new TokenExample());
+        for (Token token:list){
+            if (token.getExpiretime().getTime()>now.getTime()){
+                tokenMapper.deleteByExpireTime(token);
+                System.out.println(token.getTokenid()+"已删除");
+            }
+        }
     }
 }

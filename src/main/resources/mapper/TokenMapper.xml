@@ -225,4 +225,8 @@
     from token
     where userId=#{userId}
   </select>
+  <delete id="deleteByExpireTime" parameterType="cn.blog.bean.Token">
+    delete from token
+    where tokenId=#{tokenid}
+  </delete>
 </mapper>
