@@ -22,3 +22,10 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+### node ###
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+.idea
