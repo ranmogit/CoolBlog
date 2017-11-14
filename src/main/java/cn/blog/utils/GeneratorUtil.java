@@ -1,4 +1,4 @@
-package cn.blog.test;
+package cn.blog.utils;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by apple on 2017/10/7.
  */
-public class GeneratorTest {
+public class GeneratorUtil {
     public static void main(String[] args)throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;

@@ -1,4 +1,4 @@
-package cn.blog;
+package cn.blog.utils;
 
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.RequestHandler;
