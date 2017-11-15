@@ -14,7 +14,7 @@ import java.util.*;
 @Service
 public class TokenServiceImpl implements TokenService {
 
-    private static final int Expire = 3600*12;
+    private static final int Expire = 3600*25;
 
     @Autowired
     private UserMapper userMapper;
