@@ -19,7 +19,7 @@
                 <br>
                 <input type="" name="name" id="name" value="" placeholder="username"  class="cool-input cool-row-3">
                 <br><br>
-                <input type="" name="password" id="password" value="" placeholder="password" class="cool-input cool-row-3">
+                <input type="password" name="password" id="password" value="" placeholder="password" class="cool-input cool-row-3">
                 <br><br>
                 <button class="cool-button-default" onclick="login()">登录</button>
             </div>
@@ -49,7 +49,7 @@
      var name = document.getElementById('name').value;
      console.log(name);
      var password=document.getElementById('password').value;;
-     var url='http://127.0.0.1:8088/ajaxLogin'
+     var url='http://localhost:8088/ajaxLogin'
      $.ajax({
          url:url,
          type:'post',
