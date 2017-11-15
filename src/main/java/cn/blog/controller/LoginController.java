@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by liuwen on 2017/11/13.
- */
 @RestController
 public class LoginController {
 
@@ -28,23 +25,6 @@ public class LoginController {
     @Autowired
     private TokenService tokenService;
 
-    /**
-     * 系统管理员登录action
-     * @param name 账号
-     * @param password 密码
-     * @return statu 成功返回200，失败返回500
-     */
-    /*@ApiOperation(value = "登录验证",notes = "成功返回200，失败返回500")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "name",value = "账号名",required = true,dataType = "String"),
-            @ApiImplicitParam(name = "password",value = "密码",required = true,dataType = "String")
-    })
-    @RequestMapping(value = "/ajaxLogin",method = RequestMethod.POST)
-    public int ajaxLogin(@Param("name")String name,@Param("password")String password){
-        User user = new User(name,password);
-        int statu = userService.queryUser(user);
-        return statu;
-    }*/
     @ApiOperation(value = "登录验证",notes = "成功返回200，失败返回500,返回一个TokenJSON对象")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name",value = "账号名",required = true,dataType = "String"),
@@ -52,9 +32,12 @@ public class LoginController {
     })
     @RequestMapping(value = "/ajaxLogin",method = RequestMethod.POST)
     public Map<String, Object> ajaxLogin(@RequestParam("name")String name, @RequestParam("password")String password){
+        Map<String, Object> map = new HashMap<String,Object>();
         User user = new User(name,password);
-        Map<String, Object> map = tokenService.createToken(user);
         int status = userService.queryUser(user);
+        if (status==200){
+            map = tokenService.createToken(user);
+        }
         map.put("status",status);
         return map;
     }

@@ -58,8 +58,8 @@
          success:function (result) {
              if(result.status==200){
                  console.log(result)
-             }else {
-                 alert('失败！')
+             }else if(result.status=500){
+                 alert('登录失败！')
              }
          }
 
