@@ -49,7 +49,7 @@ public class TokenServiceImpl implements TokenService {
         Date now = new Date();
         List<Token> list = tokenMapper.selectByExample(new TokenExample());
         for (Token token:list){
-            if (token.getExpiretime().getTime()>now.getTime()){
+            if (token.getExpiretime().getTime()<now.getTime()){
                 tokenMapper.deleteByExpireTime(token);
                 System.out.println(token.getTokenid()+"已删除");
             }
