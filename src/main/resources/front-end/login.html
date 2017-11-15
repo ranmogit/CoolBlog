@@ -57,9 +57,10 @@
          datatype:'jsonp',
          success:function (result) {
              if(result.status==200){
+                 localStorage.setItem("token",result.token)
                  console.log(result)
-             }else {
-                 alert('失败！')
+             }else if(result.status=500){
+                 alert('登录失败！')
              }
          }
 
