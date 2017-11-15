@@ -34,7 +34,7 @@ public class TokenServiceImpl implements TokenService {
 
         Token token = new Token(newtoken,user1.getId(),updateTime,expireTime);
         //判断token是否已经存在,不存在就存入，存在就更新
-        if (tokenMapper.findByToken(token)==null){
+        if (tokenMapper.findByUserId(user1.getId())==null){
             tokenMapper.insert(token);
             System.out.println("存入成功");
         }else {
