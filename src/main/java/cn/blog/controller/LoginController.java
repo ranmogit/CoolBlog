@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -50,7 +51,7 @@ public class LoginController {
             @ApiImplicitParam(name = "password",value = "密码",required = true,dataType = "String")
     })
     @RequestMapping(value = "/ajaxLogin",method = RequestMethod.POST)
-    public Map<String, Object> ajaxLogin(@Param("name")String name,@Param("password")String password){
+    public Map<String, Object> ajaxLogin(@RequestParam("name")String name, @RequestParam("password")String password){
         User user = new User(name,password);
         Map<String, Object> map = tokenService.createToken(user);
         int status = userService.queryUser(user);
