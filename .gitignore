@@ -26,5 +26,18 @@ nbdist/
 ### node ###
 .DS_Store
 node_modules/
-npm-debug.log
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/test/e2e/reports/
+selenium-debug.log
+
+# Editor directories and files
 .idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+

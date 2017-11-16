@@ -57,8 +57,12 @@
          datatype:'jsonp',
          success:function (result) {
              if(result.status==200){
-                 localStorage.setItem("token",result.token)
+                 localStorage.setItem("token",result.token.token);
+                 var overdate= result.token.expiretime;
+                 overdate=new Date(overdate);
                  console.log(result)
+                 console.log(overdate)
+                 location.href=''
              }else if(result.status=500){
                  alert('登录失败！')
              }
