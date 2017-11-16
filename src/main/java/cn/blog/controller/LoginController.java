@@ -32,6 +32,7 @@ public class LoginController {
     })
     @RequestMapping(value = "/ajaxLogin",method = RequestMethod.POST)
     public Map<String, Object> ajaxLogin(@RequestParam("name")String name, @RequestParam("password")String password){
+        tokenService.checkExpire();
         Map<String, Object> map = new HashMap<String,Object>();
         User user = new User(name,password);
         int status = userService.queryUser(user);

@@ -216,7 +216,17 @@
   </select>
   <update id="updateByToken" parameterType="cn.blog.bean.Token">
     UPDATE token
-    SET userId=#{userid},updateTime=#{updatetime},expireTime=#{expiretime}
-    WHERE token=#{token}
+    SET token=#{token},updateTime=#{updatetime},expireTime=#{expiretime}
+    WHERE userId=#{userid}
   </update>
+  <select id="findByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from token
+    where userId=#{userId}
+  </select>
+  <delete id="deleteByExpireTime" parameterType="cn.blog.bean.Token">
+    delete from token
+    where tokenId=#{tokenid}
+  </delete>
 </mapper>

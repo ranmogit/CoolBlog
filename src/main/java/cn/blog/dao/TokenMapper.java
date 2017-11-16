@@ -31,5 +31,9 @@ public interface TokenMapper {
     //lxt
     Token findByToken(Token token);
 
+    Token findByUserId(Integer userId);
+
     int updateByToken(Token token);
+
+    int deleteByExpireTime(Token token);
 }
