@@ -20,7 +20,8 @@ public class HandleController {
     @Autowired
     private HandleMapper handleMapper;
 
-    @GetMapping(value = "ajaxHandle")
+    @ApiOperation(value = "拿到所有操作方式",notes = "")
+    @GetMapping(value = "Handles")
     public Map<String,Object> ajaxHandle(){
         Map<String, Object> map = new LinkedHashMap<String,Object>();
         List<Handle> handleList = handleMapper.selectByExample(new HandleExample());

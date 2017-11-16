@@ -21,6 +21,7 @@ public class Swagger2 {
 
     private Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
+                .host("/front-end/swagger-ui.html")
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("cn.blog.controller"))      //扫描Controller所在的包
