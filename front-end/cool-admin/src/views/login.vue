@@ -73,16 +73,23 @@ export default {
     handleSubmit (name) {
       this.$refs[name].validate(valid => {
         if (valid) {
-          this.$Message.success('Success!')
-          console.log(this.formValidate.name)
-          let userinfo = JSON.stringify(this.formValidate)
+          let that = this
+          // let userinfo = JSON.stringify(this.formValidate)
+          let name = this.formValidate.name
+          let password = this.formValidate.password
+          console.log(name)
           this.$axios
-            .post('/api/ajaxLogin', { params: {
-              name: userinfo.name,
-              password: userinfo.password
-            } })
+            .get('/api/ajaxLogin', { params:
+            {name: name, password: password}
+            })
             .then(function (response) {
               console.log(response)
+              if (response.data.status === 200) {
+                that.$Message.success('Success!')
+                that.$router.push({ path: '/' })
+              } else {
+                that.$Message.error('Fail! ')
+              }
             })
             .catch(function (error) {
               console.log(error)

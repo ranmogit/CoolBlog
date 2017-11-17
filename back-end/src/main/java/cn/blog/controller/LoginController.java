@@ -30,7 +30,7 @@ public class LoginController {
             @ApiImplicitParam(name = "name",value = "账号名",required = true,dataType = "String"),
             @ApiImplicitParam(name = "password",value = "密码",required = true,dataType = "String")
     })
-    @RequestMapping(value = "/ajaxLogin",method = RequestMethod.POST)
+    @RequestMapping(value = "/ajaxLogin",method = RequestMethod.GET)
     public Map<String, Object> ajaxLogin(@RequestParam("name")String name, @RequestParam("password")String password){
         tokenService.checkExpire();
         Map<String, Object> map = new HashMap<String,Object>();
