@@ -61,7 +61,7 @@ export default {
           },
           {
             type: 'string',
-            min: 6,
+            min: 4,
             message: 'The password length cannot be less than 6 bits',
             trigger: 'blur'
           }
@@ -74,10 +74,13 @@ export default {
       this.$refs[name].validate(valid => {
         if (valid) {
           this.$Message.success('Success!')
-          console.log(this.formValidate)
-          let userinfo = this.formValidate
+          console.log(this.formValidate.name)
+          let userinfo = JSON.stringify(this.formValidate)
           this.$axios
-            .get('http://127.0.0.1:8088/ajaxLogin', { userinfo })
+            .post('/api/ajaxLogin', { params: {
+              name: userinfo.name,
+              password: userinfo.password
+            } })
             .then(function (response) {
               console.log(response)
             })
